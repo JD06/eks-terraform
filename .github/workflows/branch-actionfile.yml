@@ -1,0 +1,19 @@
+name: "Dynamic Branch Creation"
+
+on:
+  push:
+    branches:
+      - "main"
+      
+
+jobs:
+  create-frontend-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: git checkout
+        uses: JD06/aws-cloudformation-deploy@main
+        with:
+          repository_owner: JD06
+          repository_name: aws-cloudformation-deploy
+          new_branch_name: test_success
+          ignore_branch_exists: true
